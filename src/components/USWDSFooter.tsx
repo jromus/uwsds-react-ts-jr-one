@@ -16,7 +16,7 @@ const USWDSFooter: React.FC = () => {
             <span className='text-bold text-xl'>COMET Program</span>
           </div>
           <ul
-            className='usa-list--unstyled flex flex-row flex-gap-3 margin-0 padding-0'
+            className='usa-list--unstyled display-flex flex-row flex-gap-3 margin-0 padding-0'
             role='list'
           >
             {/* Facebook */}

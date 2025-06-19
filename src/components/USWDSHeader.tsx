@@ -1,7 +1,10 @@
-// src/components/USWDSHeader.tsx
-import React from 'react';
+import React, { useState } from 'react';
 
 const USWDSHeader: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => setMenuOpen(prev => !prev);
+
   return (
     <>
       {/* USA Banner */}
@@ -61,8 +64,11 @@ const USWDSHeader: React.FC = () => {
             {/* Mobile menu button */}
             <button
               className='usa-menu-btn'
-              aria-label='Open menu'
+              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+              aria-expanded={menuOpen}
+              aria-controls='primary-navigation'
               type='button'
+              onClick={toggleMenu}
             >
               Menu
             </button>
@@ -70,46 +76,79 @@ const USWDSHeader: React.FC = () => {
         </div>
 
         {/* Navigation */}
-        <nav className='usa-nav'>
-          <button className='usa-nav__close' aria-label='Close menu'>
+        <nav
+          className={`usa-nav ${menuOpen ? 'is-visible' : ''}`}
+          id='primary-navigation'
+        >
+          <button
+            className='usa-nav__close'
+            aria-label='Close menu'
+            onClick={toggleMenu}
+          >
             <svg
               className='usa-icon'
               aria-hidden='true'
               focusable='false'
               role='img'
+              width='24'
+              height='24'
+              viewBox='0 0 24 24'
+              fill='currentColor'
             >
-              <use href='/assets/img/sprite.svg#close' />
+              <path
+                d='M18 6L6 18M6 6l12 12'
+                stroke='currentColor'
+                strokeWidth='2'
+                strokeLinecap='round'
+              />
             </svg>
           </button>
 
           <div className='usa-nav__inner'>
-            <ul className='usa-nav__primary usa-accordion'>
+            <ul className='usa-nav__primary usa-accordion padding-0 margin-0 list-none'>
               <li className='usa-nav__primary-item'>
                 <a
                   href='/'
                   className='usa-nav__link usa-current'
                   aria-current='page'
+                  onClick={() => setMenuOpen(false)}
                 >
                   Home
                 </a>
               </li>
               <li className='usa-nav__primary-item'>
-                <a href='/about' className='usa-nav__link'>
+                <a
+                  href='/about'
+                  className='usa-nav__link'
+                  onClick={() => setMenuOpen(false)}
+                >
                   About
                 </a>
               </li>
               <li className='usa-nav__primary-item'>
-                <a href='/contact' className='usa-nav__link'>
+                <a
+                  href='/contact'
+                  className='usa-nav__link'
+                  onClick={() => setMenuOpen(false)}
+                >
                   Contact
                 </a>
               </li>
               <li className='usa-nav__primary-item'>
-                <a href='/my-account' className='usa-nav__link'>
+                <a
+                  href='/my-account'
+                  className='usa-nav__link'
+                  onClick={() => setMenuOpen(false)}
+                >
                   My Account
                 </a>
               </li>
               <li className='usa-nav__primary-item'>
-                <a href='/login' className='usa-nav__link'>
+                <a
+                  href='/login'
+                  className='usa-nav__link'
+                  onClick={() => setMenuOpen(false)}
+                >
                   Login
                 </a>
               </li>
