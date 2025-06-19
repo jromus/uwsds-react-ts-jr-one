@@ -1,22 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="usa">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <link
-      rel="stylesheet"
-      href="https://designsystem.digital.gov/assets/css/uswds.min.css"
-    />
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + React + TS</title>
+
+    <title>COMET Program</title>
+
+    <!-- USWDS CSS -->
+    <!-- <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.8.1/dist/css/uswds.min.css"
+    /> -->
+
+    <!-- Optional: USWDS theme styles can go here if you want to override colors -->
   </head>
-  <body>
+  <body class="bg-base-lightest usa-font-sans">
+    <!-- Root element for your React app -->
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-    <script
-      src="https://designsystem.digital.gov/assets/js/uswds.min.js"
+
+    <!-- USWDS JS -->
+    <!-- <script
+      src="https://cdn.jsdelivr.net/npm/@uswds/uswds@3.8.1/dist/js/uswds.min.js"
       defer
-    ></script>
+    ></script> -->
+
+    <!-- Vite scripts will be injected here -->
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
